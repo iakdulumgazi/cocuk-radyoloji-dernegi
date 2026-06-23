@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import RadiologyPattern from "@/components/RadiologyPattern";
 
 const news = [
   {
@@ -23,13 +23,6 @@ const news = [
     summary: "Çocuklarda kas-iskelet sistemi görüntülemesi üzerine online eğitim serisi başlıyor.",
     tag: "Webinar",
   },
-];
-
-const highlights = [
-  { icon: "🏥", title: "Bilimsel Etkinlikler", desc: "Ulusal kongre, kurs ve webinarlar" },
-  { icon: "📚", title: "Eğitim Materyalleri", desc: "Vaka arşivi, kılavuzlar ve makaleler" },
-  { icon: "🤝", title: "Üyelik", desc: "Uzman ağına katılın" },
-  { icon: "🔬", title: "Araştırma", desc: "Çok merkezli çalışma platformu" },
 ];
 
 const tagColors: Record<string, string> = {
@@ -79,6 +72,7 @@ export default function HomePage() {
       <section className="py-20 px-4 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-15"
           style={{ background: "radial-gradient(ellipse at 30% 50%, #6366f1 0%, transparent 60%)" }} />
+        <RadiologyPattern className="absolute inset-0 w-full h-full text-white opacity-[0.06] pointer-events-none" />
         <div className="relative max-w-xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-3">Derneğimize Üye Olun</h2>
           <p className="text-slate-400 mb-8 leading-relaxed">
