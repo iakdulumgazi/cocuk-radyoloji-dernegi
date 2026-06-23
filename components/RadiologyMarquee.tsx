@@ -134,7 +134,7 @@ export default function RadiologyMarquee() {
       {/* Slogan */}
       <div className="relative text-center px-4 py-12 sm:py-16">
         <p className="text-indigo-300 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] mb-3">
-          Society of Pediatric Radiology · 2014
+          Çocuk Radyolojisi Derneği · 2014
         </p>
         <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
           Pediatrik Radyolojide Bilim ve Dayanışma
