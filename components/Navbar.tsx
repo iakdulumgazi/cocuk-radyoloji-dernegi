@@ -91,13 +91,20 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 shadow-md">
       {/* Beyaz bant: logo + başlık */}
       <div className="bg-white w-full border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4 py-3">
-          <Link href="/">
-            <Image src="/logo.png" alt="ÇRD Logo" width={144} height={144} unoptimized />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 sm:gap-4 py-3">
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/logo.png"
+              alt="ÇRD Logo"
+              width={144}
+              height={144}
+              unoptimized
+              className="w-16 h-16 sm:w-24 sm:h-24 lg:w-36 lg:h-36"
+            />
           </Link>
           <Link
             href="/"
-            className="text-3xl sm:text-4xl font-bold text-slate-800 hover:text-indigo-700 transition-colors leading-tight"
+            className="text-xl sm:text-3xl lg:text-4xl font-bold text-slate-800 hover:text-indigo-700 transition-colors leading-tight"
           >
             Çocuk Radyolojisi Derneği
           </Link>

@@ -19,3 +19,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Karşılama şeridindeki kayan radyoloji görselleri */
+@keyframes crd-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.crd-marquee {
+  animation: crd-marquee 50s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .crd-marquee {
+    animation: none;
+  }
+}

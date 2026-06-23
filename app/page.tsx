@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RadiologyPattern from "@/components/RadiologyPattern";
+import RadiologyMarquee from "@/components/RadiologyMarquee";
 
 const news = [
   {
@@ -34,6 +35,9 @@ const tagColors: Record<string, string> = {
 export default function HomePage() {
   return (
     <div>
+      {/* Karşılama şeridi */}
+      <RadiologyMarquee />
+
       {/* Latest News */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
