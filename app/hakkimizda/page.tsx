@@ -4,8 +4,8 @@ export default function HakkimizdaPage() {
   const board = [
     { name: "Prof. Dr. Ahmet SIĞIRCI", role: "Başkan", photo: "/board/sigirci.jpeg" },
     { name: "Doç. Dr. Evrim ÖZMEN", role: "Başkan Yardımcısı", photo: "/board/ozmen.jpg" },
-    { name: "Prof. Dr. Mehmet ÖZTÜRK", role: "Genel Sekreter", photo: "/board/ozturk.jpg" },
-    { name: "Doç. Dr. Zehra Filiz KARAMAN", role: "Sayman", photo: "/board/karaman.jpg" },
+    { name: "Doç. Dr. Zehra Filiz KARAMAN", role: "Genel Sekreter", photo: "/board/karaman.jpg" },
+    { name: "Prof. Dr. Mehmet ÖZTÜRK", role: "Sayman", photo: "/board/ozturk.jpg" },
     { name: "Doç. Dr. İsmail AKDULUM", role: "Üye", photo: "/board/akdulum.png" },
   ];
 
