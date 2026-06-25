@@ -12,6 +12,7 @@ const csp = [
   "img-src 'self' data: blob: https://i.ytimg.com",
   "font-src 'self'",
   "connect-src 'self'",
+  "frame-src https://www.youtube.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self' mailto:",
