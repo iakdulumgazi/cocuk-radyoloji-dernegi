@@ -35,7 +35,7 @@ const all: WebinarEvent[] = [
     speakers: [
       { name: "Dr. Öğr. Üyesi Seda Kaynak Şahap", affil: "Ankara Üniversitesi Tıp Fakültesi, Radyoloji Anabilim Dalı" },
     ],
-    register: "",
+    register: "https://serenaslive.zoom.us/webinar/register/WN_-3BebVg3TK22cw1RXeZghw#/registration",
   },
   {
     slug: "pediatrik-ards",
