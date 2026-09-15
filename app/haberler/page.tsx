@@ -5,16 +5,21 @@ function EventCard({ e }: { e: WebinarEvent }) {
   return (
     <article
       key={e.slug}
-      className="grid sm:grid-cols-[200px_1fr] gap-5 sm:gap-6 border border-slate-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow"
+      className="grid sm:grid-cols-[260px_1fr] gap-5 sm:gap-6 border border-slate-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow"
     >
-      <a href={e.poster} target="_blank" rel="noopener noreferrer" className="block bg-slate-50">
+      <a
+        href={e.poster}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-slate-50 self-start w-full"
+      >
         <Image
           src={e.poster}
           alt={`${e.topic} afişi`}
-          width={400}
-          height={560}
+          width={640}
+          height={800}
           unoptimized
-          className="w-full h-56 sm:h-full object-cover object-top"
+          className="w-full h-auto"
         />
       </a>
       <div className="p-5 sm:py-6 sm:pr-6 sm:pl-0">
