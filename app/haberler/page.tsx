@@ -1,15 +1,6 @@
 import Image from "next/image";
 import { events, WebinarEvent } from "@/lib/events";
 
-function parseDate(dateStr: string): Date {
-  const months: Record<string, number> = {
-    "Ocak": 0, "Şubat": 1, "Mart": 2, "Nisan": 3, "Mayıs": 4, "Haziran": 5,
-    "Temmuz": 6, "Ağustos": 7, "Eylül": 8, "Ekim": 9, "Kasım": 10, "Aralık": 11,
-  };
-  const [day, month, year] = dateStr.split(" ");
-  return new Date(Number(year), months[month] ?? 0, Number(day));
-}
-
 function EventCard({ e }: { e: WebinarEvent }) {
   return (
     <article
@@ -28,11 +19,32 @@ function EventCard({ e }: { e: WebinarEvent }) {
       </a>
       <div className="p-5 sm:py-6 sm:pr-6 sm:pl-0">
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-violet-100 text-violet-700">Webinar</span>
-          <span className="text-xs text-slate-400">{e.date} · {e.time}</span>
+          {e.kind === "duyuru" ? (
+            <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Duyuru</span>
+          ) : (
+            <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-violet-100 text-violet-700">Webinar</span>
+          )}
+          <span className="text-xs text-slate-400">{e.date}{e.time && ` · ${e.time}`}</span>
         </div>
         <h2 className="text-lg font-bold text-slate-800 leading-snug">{e.topic}</h2>
         <p className="text-sm text-slate-500 mt-1 leading-relaxed">{e.series}</p>
+
+        {e.body && (
+          <p className="mt-4 text-sm text-slate-600 leading-relaxed">{e.body}</p>
+        )}
+
+        {e.pdf && (
+          <a
+            href={e.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-medium transition-colors"
+          >
+            Duyuru metnini indir (PDF)
+            <span aria-hidden>↓</span>
+          </a>
+        )}
+
         <div className="mt-4 space-y-3 text-sm">
           {e.moderators.length > 0 && (
             <div>
@@ -45,17 +57,19 @@ function EventCard({ e }: { e: WebinarEvent }) {
               ))}
             </div>
           )}
-          <div>
-            <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
-              {e.speakers.length > 1 ? "Konuşmacılar" : "Konuşmacı"}
-            </span>
-            {e.speakers.map((p) => (
-              <div key={p.name} className="mt-0.5">
-                <span className="font-medium text-slate-700">{p.name}</span>
-                {p.affil && <span className="block text-xs text-slate-400">{p.affil}</span>}
-              </div>
-            ))}
-          </div>
+          {e.speakers.length > 0 && (
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+                {e.speakers.length > 1 ? "Konuşmacılar" : "Konuşmacı"}
+              </span>
+              {e.speakers.map((p) => (
+                <div key={p.name} className="mt-0.5">
+                  <span className="font-medium text-slate-700">{p.name}</span>
+                  {p.affil && <span className="block text-xs text-slate-400">{p.affil}</span>}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         {e.register && (
           <a
@@ -73,10 +87,9 @@ function EventCard({ e }: { e: WebinarEvent }) {
 }
 
 export default function HaberlerPage() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const upcoming = events.filter((e) => parseDate(e.date) >= today);
-  const past = events.filter((e) => parseDate(e.date) < today);
+  const today = new Date().toISOString().slice(0, 10);
+  const upcoming = events.filter((e) => e.iso >= today);
+  const past = events.filter((e) => e.iso < today);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">

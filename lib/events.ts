@@ -8,19 +8,44 @@ export type WebinarEvent = {
   slug: string;
   poster: string;
   date: string; // görünen tarih
+  iso: string; // sıralama için YYYY-MM-DD
   time: string;
   topic: string; // ana başlık
   series: string; // toplantı serisi
   moderators: Person[];
   speakers: Person[];
   register: string; // kayıt linki (boşsa buton gösterilmez)
+  kind?: "webinar" | "duyuru";
+  body?: string; // duyuru metni
+  pdf?: string; // duyuru PDF'i
 };
 
-export const events: WebinarEvent[] = [
+const all: WebinarEvent[] = [
+  {
+    slug: "olagan-genel-kurul-2026",
+    poster: "/events/genel-kurul.jpg",
+    date: "15 Eylül 2026",
+    iso: "2026-09-15",
+    time: "",
+    topic: "Olağan Genel Kurul Toplantısı",
+    series: "Çocuk Radyolojisi Derneği Başkanlığı'ndan Duyuru",
+    moderators: [],
+    speakers: [],
+    register: "",
+    kind: "duyuru",
+    pdf: "/genel-kurul-2026.pdf",
+    body:
+      "Derneğimizin Olağan Genel Kurul toplantısı 24.10.2026 Cumartesi günü saat 10:00'de " +
+      "Erciyes Üniversitesi Tıp Fakültesi Çocuk Radyolojisi Bilim Dalı'nda aşağıdaki gündem " +
+      "maddeleri ile yapılacaktır. Bu toplantıda yeterli yasal çoğunluk sağlanamadığı takdirde " +
+      "ikinci toplantı 24.11.2026 Cuma günü Pine Beach Belek Kongre Merkezi, Antalya'da saat " +
+      "16:30'da gerçekleştirilecektir. Sayın Üyelerimizin toplantıya katılımları rica olunur.",
+  },
   {
     slug: "pediatrik-ards",
     poster: "/events/ards.jpg",
     date: "16 Haziran 2026",
+    iso: "2026-06-16",
     time: "19:30",
     topic: "Olgularla Pediatrik ARDS'de Tanı ve Ayırıcı Tanı",
     series: "TRD Pediatrik Radyoloji Eğitim ve Bilimsel Araştırma Grubu Çevrimiçi Toplantısı",
@@ -36,6 +61,7 @@ export const events: WebinarEvent[] = [
     slug: "yenidogan-akciger",
     poster: "/events/yenidogan.jpg",
     date: "14 Mayıs 2026",
+    iso: "2026-05-14",
     time: "20:00",
     topic: "Yenidoğan Akciğer Hastalıklarında Klinik–Radyoloji Diyaloğu",
     series: "Çocuk Radyolojisi Derneği Sürekli Eğitim Toplantıları",
@@ -50,6 +76,7 @@ export const events: WebinarEvent[] = [
     slug: "minik-hastalar-buyuk-aciller",
     poster: "/events/aciller.jpg",
     date: "22 Nisan 2026",
+    iso: "2026-04-22",
     time: "19:30",
     topic: "Minik Hastalar Büyük Aciller",
     series: "TRD Acil Radyoloji Eğitim ve Bilimsel Araştırma Grubu Çevrimiçi Toplantısı",
@@ -68,6 +95,7 @@ export const events: WebinarEvent[] = [
     slug: "kore-pediatrik-radyoloji",
     poster: "/events/kore.jpg",
     date: "11 Nisan 2026",
+    iso: "2026-04-11",
     time: "20:00",
     topic: "Kore ve Kore'de Pediatrik Radyoloji ile İlgili Deneyimlerim",
     series: "Çocuk Radyolojisi Derneği Sürekli Eğitim Toplantıları",
@@ -83,6 +111,7 @@ export const events: WebinarEvent[] = [
     slug: "pediatrik-karaciger-tumorleri",
     poster: "/events/karaciger.jpg",
     date: "9 Nisan 2026",
+    iso: "2026-04-09",
     time: "19:30",
     topic: "Pediatrik Karaciğer Tümörleri",
     series: "TRD Pediatrik Radyoloji Eğitim ve Bilimsel Araştırma Grubu Çevrimiçi Toplantısı",
@@ -95,3 +124,5 @@ export const events: WebinarEvent[] = [
     register: "",
   },
 ];
+
+export const events: WebinarEvent[] = [...all].sort((a, b) => b.iso.localeCompare(a.iso));

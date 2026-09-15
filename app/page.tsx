@@ -43,7 +43,11 @@ export default function HomePage() {
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-violet-100 text-violet-700">Webinar</span>
+                    {e.kind === "duyuru" ? (
+                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Duyuru</span>
+                    ) : (
+                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-violet-100 text-violet-700">Webinar</span>
+                    )}
                     <span className="text-xs text-slate-400">{e.date}</span>
                   </div>
                   <h3 className="font-semibold text-slate-800 mb-2 leading-snug group-hover:text-indigo-700 transition-colors">{e.topic}</h3>
