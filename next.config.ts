@@ -7,11 +7,11 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === "development";
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://i.ytimg.com",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://va.vercel-scripts.com",
   "frame-src https://www.youtube.com",
   "object-src 'none'",
   "base-uri 'self'",
