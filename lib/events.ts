@@ -22,24 +22,20 @@ export type WebinarEvent = {
 
 const all: WebinarEvent[] = [
   {
-    slug: "olagan-genel-kurul-2026",
-    poster: "/events/genel-kurul.jpg",
-    date: "15 Eylül 2026",
-    iso: "2026-09-15",
-    time: "",
-    topic: "Olağan Genel Kurul Toplantısı",
-    series: "Çocuk Radyolojisi Derneği Başkanlığı'ndan Duyuru",
-    moderators: [],
-    speakers: [],
+    slug: "cocuklarda-snik-goruntuleme",
+    poster: "/events/snik.jpg",
+    date: "17 Eylül 2026",
+    iso: "2026-09-17",
+    time: "19:30",
+    topic: "Çocuklarda Sensörinöral İşitme Kaybında Görüntüleme: Sendromik SNİK için İpuçları",
+    series: "TRD Pediatrik Radyoloji Eğitim ve Bilimsel Araştırma Grubu Çevrim İçi Toplantısı",
+    moderators: [
+      { name: "Prof. Dr. Ömer Suat Fitoz", affil: "Ankara Üniversitesi Tıp Fakültesi, Radyoloji Anabilim Dalı" },
+    ],
+    speakers: [
+      { name: "Dr. Öğr. Üyesi Seda Kaynak Şahap", affil: "Ankara Üniversitesi Tıp Fakültesi, Radyoloji Anabilim Dalı" },
+    ],
     register: "",
-    kind: "duyuru",
-    pdf: "/genel-kurul-2026.pdf",
-    body:
-      "Derneğimizin Olağan Genel Kurul toplantısı 24.10.2026 Cumartesi günü saat 10:00'de " +
-      "Erciyes Üniversitesi Tıp Fakültesi Çocuk Radyolojisi Bilim Dalı'nda aşağıdaki gündem " +
-      "maddeleri ile yapılacaktır. Bu toplantıda yeterli yasal çoğunluk sağlanamadığı takdirde " +
-      "ikinci toplantı 24.11.2026 Cuma günü Pine Beach Belek Kongre Merkezi, Antalya'da saat " +
-      "16:30'da gerçekleştirilecektir. Sayın Üyelerimizin toplantıya katılımları rica olunur.",
   },
   {
     slug: "pediatrik-ards",
