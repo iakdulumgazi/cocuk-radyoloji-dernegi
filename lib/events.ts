@@ -22,6 +22,28 @@ export type WebinarEvent = {
 
 const all: WebinarEvent[] = [
   {
+    slug: "olagan-genel-kurul-2026",
+    poster: "/events/genel-kurul.jpg",
+    date: "24 Ekim 2026",
+    iso: "2026-10-24",
+    time: "10:00",
+    topic: "Olağan Genel Kurul Toplantısı",
+    series: "Çocuk Radyolojisi Derneği Yönetim Kurulu Duyurusu",
+    moderators: [],
+    speakers: [],
+    register: "",
+    kind: "duyuru",
+    pdf: "/genel-kurul-2026.pdf",
+    body:
+      "Derneğimizin Olağan Genel Kurul Toplantısı 24 Ekim 2026 Cumartesi günü saat 10.00'da " +
+      "Erciyes Üniversitesi Tıp Fakültesi Çocuk Radyolojisi Bilim Dalı'nda aşağıdaki gündem " +
+      "maddeleri ile yapılacaktır. Bu toplantıda yeterli yasal çoğunluk sağlanamadığı takdirde " +
+      "ikinci toplantı, çoğunluk aranmaksızın 26 Kasım 2026 Perşembe günü saat 17.20'de " +
+      "Pine Beach Belek Kongre Merkezi, Salon 3, Antalya adresinde gerçekleştirilecektir. " +
+      "Dernekler Kanunu gereği Genel Kurul'da vekaletle oy kullanılamamaktadır; toplantıya " +
+      "bizzat katılmanız ve kimlik ibraz etmeniz gerekmektedir.",
+  },
+  {
     slug: "cocuklarda-snik-goruntuleme",
     poster: "/events/snik.jpg",
     date: "17 Eylül 2026",
